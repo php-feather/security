@@ -26,6 +26,10 @@ function fs_decrypt($cipherText,$secret,$cipher='aes-128-cbc',$unserialize=false
     return $en->decrypt($cipherText, $unserialize);
 }
 
+/**
+ * Generates CSRF token
+ * @return string
+ */
 function fs_csrf_token(){
     return Feather\Security\CsrfToken::generate();
 }

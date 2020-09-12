@@ -9,13 +9,20 @@ namespace Feather\Security;
  */
 class Encrypter
 {
-    
+    /** @var string **/
     protected $key;
     
+    /** @var string **/
     protected $cipher;
     
+    /** @var int **/
     protected $keyLength;
     
+    /**
+     * 
+     * @param string $key
+     * @param string $cipher
+     */
     public function __construct($key,$cipher='aes-128-cbc')
     {
         $cipher = strtolower($cipher);
@@ -27,17 +34,29 @@ class Encrypter
         }
     }
     
-    public function encrypt($plainText,$serialize = false){
+    /**
+     * 
+     * @param string|mixed $value if not string, then set serialize to true
+     * @param boolean $serialize
+     * @return string
+     */
+    public function encrypt($value,$serialize = false){
         
         $iv = openssl_random_pseudo_bytes($this->keyLength);
         
-        $rawVal = openssl_encrypt($serialize? serialize($plainText) : $plainText, $this->cipher, $this->key, 0, $iv);
+        $rawVal = openssl_encrypt($serialize? serialize($value) : $value, $this->cipher, $this->key, 0, $iv);
         
         $hmac = hash_hmac('sha256', $rawVal, $this->key,true);
         
         return base64_encode($iv.$hmac.$rawVal);
     }
     
+    /**
+     * 
+     * @param string $encryptedText
+     * @param true $unserialize - set this to true if serialize was set to true during encryption
+     * @return string
+     */
     public function decrypt($encryptedText, $unserialize=false){
         
         $decoded = base64_decode($encryptedText);
@@ -53,6 +72,13 @@ class Encrypter
         return $unserialize? unserialize($decryptedText) : $decryptedText;
     }
     
+    /**
+     * 
+     * @param string $key
+     * @param string $cipher
+     * @return boolean
+     * @throws \RuntimeException
+     */
     public static function isSupported($key,$cipher){
         if(!in_array($cipher, openssl_get_cipher_methods())){
             throw new \RuntimeException('Cipher not supported by OpenSSL.');
