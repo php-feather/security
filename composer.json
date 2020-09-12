@@ -1,0 +1,21 @@
+{
+    "name": "php-feather/security",
+    "description": "Feather Security",
+    "type":"library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Francis Carbah",
+            "email": "afrounit@hotmail.com.com"
+        }
+    ],
+    "autoload":{
+        "psr-4":{
+            "Feather\\Security\\":"src/"
+        },
+        "files": ["src/helpers.php"]
+    },
+    "require": {
+        "php": ">=7.0"
+    }
+}
