@@ -7,7 +7,7 @@ namespace Feather\Security\Validation\Rules;
  *
  * @author fcarbah
  */
-class NumericRule extends Rule
+class Numeric extends Rule
 {
     /**
      * 
