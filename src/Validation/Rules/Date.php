@@ -9,25 +9,24 @@ namespace Feather\Security\Validation\Rules;
  */
 class Date extends Rule
 {
-    
+
     /**
-     * 
+     *
      * @return string
      */
     public function error(): string
     {
         return 'Is not a valid date';
     }
-    
+
     /**
-     * 
+     *
      * @return boolean
      */
     public function run()
     {
-        try{
-            
-            if($this->input == null){
+        try {
+            if ($this->input == null) {
                 return false;
             }
             $d = new \DateTime($this->input);

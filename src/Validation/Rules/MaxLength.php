@@ -9,30 +9,32 @@ namespace Feather\Security\Validation\Rules;
  */
 class MaxLength extends Rule
 {
-    /** @var int **/
+
+    /** @var int * */
     protected $length;
-    
+
     /**
-     * 
+     *
      * @param string $input
      * @param int $length
      */
-    public function __construct($input,$length)
+    public function __construct($input, $length)
     {
         parent::__construct($input);
         $this->length = $length;
     }
-    
+
     /**
-     * 
+     *
      * @return string
      */
     public function error(): string
     {
         return "Length exceeds maximum length requirement";
     }
+
     /**
-     * 
+     *
      * @return boolean
      */
     public function run()
