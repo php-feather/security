@@ -1,7 +1,7 @@
 {
     "name": "php-feather/security",
     "description": "Feather Security",
-    "type":"library",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -9,13 +9,14 @@
             "email": "afrounit@hotmail.com.com"
         }
     ],
-    "autoload":{
-        "psr-4":{
-            "Feather\\Security\\":"src/"
+    "autoload": {
+        "psr-4": {
+            "Feather\\Security\\": "src/"
         },
         "files": ["src/helpers.php"]
     },
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.0",
+        "php-feather/session": "dev-master"
     }
 }
