@@ -9,30 +9,39 @@ namespace Feather\Security\Validation\Rules;
  */
 abstract class Rule implements IRule
 {
-    /** @var mixed **/
+
+    /** @var mixed * */
     protected $input;
-    
+
     public function __construct($input)
     {
         $this->input = $input;
     }
-    
+
+    public static function abbreviation()
+    {
+        return strtolowe(static::class);
+    }
+
     /**
-     * 
+     *
      * @return \Feather\Security\Validation\Rules\Rule
      */
-    public static function getInstance(){
+    public static function getInstance()
+    {
         $reflection = new \ReflectionClass(static::class);
         return $reflection->newInstanceArgs(func_get_args());
     }
-    
+
     /**
-     * 
+     *
      * @param mixed $input
      * @return $this
      */
-    public function setInput($input){
+    public function setInput($input)
+    {
         $this->input = $input;
         return $this;
     }
+
 }
