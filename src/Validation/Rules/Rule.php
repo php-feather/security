@@ -20,7 +20,7 @@ abstract class Rule implements IRule
 
     public static function abbreviation()
     {
-        return strtolower(str_replace('Feather\Security\Validation\Rules', '', static::class));
+        return strtolower(str_replace('Feather\Security\Validation\Rules\\', '', static::class));
     }
 
     /**
