@@ -20,7 +20,7 @@ abstract class Rule implements IRule
 
     public static function abbreviation()
     {
-        return strtolowe(static::class);
+        return strtolower(static::class);
     }
 
     /**
