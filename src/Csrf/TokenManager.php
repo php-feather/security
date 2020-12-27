@@ -48,7 +48,7 @@ class TokenManager
     {
         $token = Session::get($id);
         if ($token == null) {
-            return self::generate($id);
+            return static::generate($id);
         }
         return new CsrfToken($id, $token);
     }
@@ -77,7 +77,7 @@ class TokenManager
      */
     public static function refreshToken(CsrfToken $token)
     {
-        return self::generate($token->getId(), $token->getExpire());
+        return static::generate($token->getId(), $token->getExpire());
     }
 
 }

@@ -64,7 +64,7 @@ class CsrfToken
             return false;
         }
         $time = time();
-        return $time > $this->expireTime + self::GRACE_TIME;
+        return $time > $this->expireTime + static::GRACE_TIME;
     }
 
     /**

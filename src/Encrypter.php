@@ -27,7 +27,7 @@ class Encrypter
     {
         $cipher = strtolower($cipher);
         
-        if(self::isSupported($key,$cipher)){
+        if(static::isSupported($key,$cipher)){
             $this->cipher = $cipher;
             $this->key = $key;
             $this->keyLength = openssl_cipher_iv_length($cipher);
