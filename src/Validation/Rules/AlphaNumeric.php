@@ -9,22 +9,32 @@ namespace Feather\Security\Validation\Rules;
  */
 class AlphaNumeric extends Rule
 {
+
     /**
-     * 
+     *
+     * {@inheritDoc}
+     */
+    public static function alias()
+    {
+        return 'alphanum';
+    }
+
+    /**
+     *
      * @return string
      */
     public function error()
     {
         return " Is not Alphanumeric";
     }
-    
+
     /**
-     * 
+     *
      * @return boolean
      */
     public function run()
     {
-        return preg_match('/^([a-z]*\d*)+(\s*[a-z]*\d*)*$/i',$this->input);
+        return (bool) preg_match('/^([a-z]*\d*)+(\s*[a-z]*\d*)*$/i', $this->input);
     }
 
 }

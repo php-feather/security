@@ -9,44 +9,55 @@ namespace Feather\Security\Validation\Rules;
  */
 class Regex extends Rule
 {
-    /** @var string **/
+
+    /** @var string * */
     protected $pattern;
-    
+
     /**
-     * 
+     *
      * @param string $input
-     * @param string $pattern Regex 
+     * @param string $pattern Regex
      */
-    public function __construct($input,$pattern)
+    public function __construct($input, $pattern)
     {
         parent::__construct($input);
         $this->pattern = $pattern;
     }
-    
+
     /**
-     * 
+     *
+     * {@inheritDoc}
+     */
+    public static function alias()
+    {
+        return 'regex';
+    }
+
+    /**
+     *
      * @return string
      */
     public function error()
     {
         return "Does not match pattern";
     }
-    
+
     /**
-     * 
+     *
      * @return boolean
      */
     public function run()
     {
-        return preg_match($this->pattern,$this->input);
+        return (bool) preg_match($this->pattern, $this->input);
     }
-    
+
     /**
-     * 
-     * @param string $pattern Regex 
+     *
+     * @param string $pattern Regex
      * @return $this
      */
-    public function setPattern($pattern){
+    public function setPattern($pattern)
+    {
         $this->pattern = $pattern;
         return $this;
     }

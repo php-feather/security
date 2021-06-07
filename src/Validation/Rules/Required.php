@@ -9,16 +9,27 @@ namespace Feather\Security\Validation\Rules;
  */
 class Required extends Rule
 {
+
     /**
-     * 
+     *
+     * {@inheritDoc}
+     */
+    public static function alias()
+    {
+        return 'required';
+    }
+
+    /**
+     *
      * @return string
      */
     public function error()
     {
         return "Is Required";
     }
+
     /**
-     * 
+     *
      * @return boolean
      */
     public function run()

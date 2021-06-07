@@ -9,21 +9,32 @@ namespace Feather\Security\Validation\Rules;
  */
 class Numeric extends Rule
 {
+
     /**
-     * 
+     *
+     * {@inheritDoc}
+     */
+    public static function alias()
+    {
+        return 'numeric';
+    }
+
+    /**
+     *
      * @return string
      */
     public function error()
     {
         return 'Is not Numeric';
     }
-    
+
     /**
-     * 
+     *
      * @return boolean
      */
-    public function run(){
+    public function run()
+    {
         return is_numeric($this->input);
     }
-    
+
 }

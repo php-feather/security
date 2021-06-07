@@ -3,3 +3,4 @@ nbproject/
 src/crypto.key
 src/index.php
 vendor/
+.phpunit*

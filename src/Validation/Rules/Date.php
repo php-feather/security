@@ -12,6 +12,15 @@ class Date extends Rule
 
     /**
      *
+     * {@inheritDoc}
+     */
+    public static function alias()
+    {
+        return 'date';
+    }
+
+    /**
+     *
      * @return string
      */
     public function error(): string

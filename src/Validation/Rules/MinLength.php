@@ -27,6 +27,15 @@ class MinLength extends Rule
 
     /**
      *
+     * {@inheritDoc}
+     */
+    public static function alias()
+    {
+        return 'min_length';
+    }
+
+    /**
+     *
      * @return string
      */
     public function error(): string

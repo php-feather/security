@@ -29,6 +29,15 @@ class AfterDate extends Rule
 
     /**
      *
+     * {@inheritDoc}
+     */
+    public static function alias()
+    {
+        return 'date_after';
+    }
+
+    /**
+     *
      * @return string
      */
     public function error(): string

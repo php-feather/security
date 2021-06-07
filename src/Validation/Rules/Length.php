@@ -7,7 +7,7 @@ namespace Feather\Security\Validation\Rules;
  *
  * @author fcarbah
  */
-class ExactLength extends Rule
+class Length extends Rule
 {
 
     /** @var int * */
@@ -26,11 +26,20 @@ class ExactLength extends Rule
 
     /**
      *
+     * {@inheritDoc}
+     */
+    public static function alias()
+    {
+        return 'length';
+    }
+
+    /**
+     *
      * @return string
      */
     public function error(): string
     {
-        return "Length is not equal to {$length}";
+        return "Length is not equal to {$this->length}";
     }
 
     /**

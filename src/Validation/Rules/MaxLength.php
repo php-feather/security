@@ -26,6 +26,15 @@ class MaxLength extends Rule
 
     /**
      *
+     * {@inheritDoc}
+     */
+    public static function alias()
+    {
+        return 'max_length';
+    }
+
+    /**
+     *
      * @return string
      */
     public function error(): string

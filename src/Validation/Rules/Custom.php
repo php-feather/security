@@ -9,37 +9,46 @@ namespace Feather\Security\Validation\Rules;
  */
 class UserDefined extends Rule
 {
-    
-    /** @var \Closure **/
+
+    /** @var \Closure * */
     protected $closure;
-    
-    /** @var string **/
+
+    /** @var string * */
     protected $message;
-    
+
     /**
-     * 
+     *
      * @param mixed $input
      * @param \Closure $closure
      * @param string $message
      */
-    public function __construct($input,\Closure $closure,$message)
+    public function __construct($input, \Closure $closure, $message)
     {
         parent::__construct($input);
         $this->closure = $closure;
         $this->message = $message;
     }
-    
+
     /**
-     * 
+     *
+     * {@inheritDoc}
+     */
+    public static function alias()
+    {
+        return 'custom';
+    }
+
+    /**
+     *
      * @return string
      */
     public function error(): string
     {
         return $this->message;
     }
-    
+
     /**
-     * 
+     *
      * @return boolean
      */
     public function run()

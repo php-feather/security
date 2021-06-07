@@ -11,22 +11,32 @@ namespace Feather\Security\Validation\Rules;
  */
 class Email extends Rule
 {
+
     /**
-     * 
+     *
+     * {@inheritDoc}
+     */
+    public static function alias()
+    {
+        return 'email';
+    }
+
+    /**
+     *
      * @return string
      */
     public function error(): string
     {
         return 'Is not a valid email address';
     }
-    
+
     /**
-     * 
+     *
      * @return boolean
      */
     public function run()
     {
-        return preg_match('/.+@[^@]+\.[^@]+/i',$this->input);
+        return (bool) preg_match('/.+@[^@]+\.[^@]+/i', $this->input);
     }
 
 }
