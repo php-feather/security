@@ -27,12 +27,20 @@ class GreaterThan extends Rule
         return 'greater_than';
     }
 
+    /**
+     *
+     * {@inheritDoc}
+     */
     public function error(): string
     {
-        return "not greater than";
+        return 'is not greater than ' . $this->comparisonField ?: $this->compareValue;
     }
 
-    public function run(): boolean
+    /**
+     *
+     * {@inheritDoc}
+     */
+    public function run(): bool
     {
         return $this->input > $this->compareValue;
     }

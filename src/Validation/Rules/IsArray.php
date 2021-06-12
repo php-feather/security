@@ -25,7 +25,7 @@ class IsArray extends Rule
      */
     public function error()
     {
-        return 'Is Not An Array';
+        return 'is not an array';
     }
 
     /**

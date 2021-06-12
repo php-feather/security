@@ -25,7 +25,7 @@ class Required extends Rule
      */
     public function error()
     {
-        return "Is Required";
+        return "is required";
     }
 
     /**

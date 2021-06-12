@@ -7,7 +7,7 @@ namespace Feather\Security\Validation\Rules;
  *
  * @author fcarbah
  */
-class UserDefined extends Rule
+class Custom extends Rule
 {
 
     /** @var \Closure * */

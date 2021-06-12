@@ -42,8 +42,7 @@ class BeforeDate extends Rule
      */
     public function error(): string
     {
-        $msg = is_string($this->compareDate) ? $this->compareDate : $this->compareDate->format('Y-m-d h:i:s');
-        return 'Date is not before ' . $msg;
+        return 'date is not before ' . $this->comparisonField ?: $this->compareDate;
     }
 
     /**

@@ -7,7 +7,7 @@ namespace Feather\Security\Validation\Rules;
  * Matches Word Character (letter, number, underscore)
  * @author fcarbah
  */
-class Text extends Rule
+class Word extends Rule
 {
 
     /**
@@ -25,7 +25,7 @@ class Text extends Rule
      */
     public function error()
     {
-        return "Is not a valid text";
+        return "contains non word characters";
     }
 
     /**

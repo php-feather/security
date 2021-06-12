@@ -14,7 +14,7 @@ class HashTest extends TestCase
     /**
      * @test
      */
-    public function hashString()
+    public function willHashString()
     {
         $hashedStr = Hash::make('apple');
         $this->assertNotEmpty($hashedStr);
@@ -27,6 +27,16 @@ class HashTest extends TestCase
     public function compareHashedStringIsEualToOriginal()
     {
         $hashedStr = Hash::make('apple');
+        $this->assertNotEmpty($hashedStr);
+        $this->assertTrue(Hash::compare($hashedStr, 'apple'));
+    }
+
+    /**
+     * @test
+     */
+    public function compareHashedStringWithSaltIsEualToOriginal()
+    {
+        $hashedStr = Hash::make('apple', '123xcv');
         $this->assertNotEmpty($hashedStr);
         $this->assertTrue(Hash::compare($hashedStr, 'apple'));
     }

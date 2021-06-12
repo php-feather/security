@@ -39,7 +39,7 @@ class Length extends Rule
      */
     public function error(): string
     {
-        return "Length is not equal to {$this->length}";
+        return 'length is not equal to ' . $this->comparisonField ?: $this->length;
     }
 
     /**

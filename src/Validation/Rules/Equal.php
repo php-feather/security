@@ -32,10 +32,10 @@ class Equal extends Rule
 
     public function error(): string
     {
-        return 'not equal';
+        return 'is not equal to ' . $this->comparisonField ?: $this->compareValue;
     }
 
-    public function run(): boolean
+    public function run(): bool
     {
         if ($this->strict) {
             return $this->input === $this->compareValue;

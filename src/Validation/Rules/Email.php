@@ -27,7 +27,7 @@ class Email extends Rule
      */
     public function error(): string
     {
-        return 'Is not a valid email address';
+        return 'is not a valid email address';
     }
 
     /**

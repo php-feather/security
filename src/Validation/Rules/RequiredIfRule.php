@@ -3,26 +3,26 @@
 namespace Feather\Security\Validation\Rules;
 
 /**
- * Description of RequiredIf
+ * Description of RequiredIfRule
  *
  * @author fcarbah
  */
-class RequiredIf extends Rule
+class RequiredIfRule extends Rule
 {
 
     /** @var \Feather\Security\Validation\Rules\Rule * */
-    protected $other;
+    protected $rule;
 
     /**
      *
-     * @param mixed $input
-     * @param mixed $otherValue
+     * @param type $input
+     * @param \Feather\Security\Validation\Rules\Rule $rule
      */
-    public function __construct($input, $otherValue)
+    public function __construct($input, Rule $rule)
     {
         parent::__construct($input);
 
-        $this->other = $otherValue;
+        $this->rule = $rule;
     }
 
     /**
@@ -31,7 +31,7 @@ class RequiredIf extends Rule
      */
     public static function alias()
     {
-        return 'requiredif';
+        return 'requiredif_rule';
     }
 
     /**
@@ -49,7 +49,7 @@ class RequiredIf extends Rule
      */
     public function run()
     {
-        if ($this->other != null) {
+        if ($this->rule->run()) {
             return $this->input != null;
         }
 

@@ -29,10 +29,10 @@ class LessThan extends Rule
 
     public function error(): string
     {
-        return "not less than";
+        return 'is not less than ' . $this->comparisonField ?: $this->compareValue;
     }
 
-    public function run(): boolean
+    public function run(): bool
     {
         return $this->input < $this->compareValue;
     }

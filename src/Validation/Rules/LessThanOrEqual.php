@@ -29,10 +29,10 @@ class LessThanOrEqual extends Rule
 
     public function error(): string
     {
-        return "not less than or equal to";
+        return "is not less than or equal to";
     }
 
-    public function run(): boolean
+    public function run(): bool
     {
         return $this->input <= $this->compareValue;
     }

@@ -39,7 +39,7 @@ class MaxLength extends Rule
      */
     public function error(): string
     {
-        return "Length exceeds maximum length requirement";
+        return 'length is greater than ' . $this->comparisonField ?: $this->length;
     }
 
     /**
@@ -48,7 +48,7 @@ class MaxLength extends Rule
      */
     public function run()
     {
-        return strlen(trim($this->input)) > $this->length;
+        return strlen(trim($this->input)) <= $this->length;
     }
 
 }

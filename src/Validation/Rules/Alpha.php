@@ -25,7 +25,7 @@ class Alpha extends Rule
      */
     public function error()
     {
-        return "Is not Alpha";
+        return "contains non alpha characters";
     }
 
     /**

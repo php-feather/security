@@ -25,7 +25,7 @@ class AlphaNumeric extends Rule
      */
     public function error()
     {
-        return " Is not Alphanumeric";
+        return "contains non alphanumeric characters";
     }
 
     /**

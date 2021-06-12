@@ -40,7 +40,7 @@ class MinLength extends Rule
      */
     public function error(): string
     {
-        return "Length is less than minimum length requirement";
+        return 'length is less ' . $this->comparisonField ?: $this->length;
     }
 
     /**

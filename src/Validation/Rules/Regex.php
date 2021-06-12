@@ -39,7 +39,7 @@ class Regex extends Rule
      */
     public function error()
     {
-        return "Does not match pattern";
+        return "does not match pattern";
     }
 
     /**

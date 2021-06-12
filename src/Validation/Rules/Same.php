@@ -44,7 +44,7 @@ class Same extends Rule
      */
     public function error(): string
     {
-        return "Does not match";
+        return 'is not the same as ' . $this->comparisonField ?: $this->compareValue;
     }
 
     /**

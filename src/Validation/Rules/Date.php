@@ -25,7 +25,7 @@ class Date extends Rule
      */
     public function error(): string
     {
-        return 'Is not a valid date';
+        return 'is not a valid date';
     }
 
     /**
@@ -34,15 +34,8 @@ class Date extends Rule
      */
     public function run()
     {
-        try {
-            if ($this->input == null) {
-                return false;
-            }
-            $d = new \DateTime($this->input);
-            return true;
-        } catch (\Exception $e) {
-            return false;
-        }
+        $date = date_create($this->input);
+        return $date instanceof \DateTime;
     }
 
 }

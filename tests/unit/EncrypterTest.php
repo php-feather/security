@@ -40,12 +40,37 @@ class EncrypterTest extends TestCase
     /**
      * @test
      */
+    public function willEncryptObject()
+    {
+        $obj = new stdClass();
+        $obj->name = 'Steve';
+        $obj->age = 30;
+        $encryptedVal = static::$encrypter->encrypt($obj, true);
+        $this->assertNotEmpty($encryptedVal);
+    }
+
+    /**
+     * @test
+     */
     public function willDecryptString()
     {
         $encryptedVal = static::$encrypter->encrypt('test');
         $decryptedVal = static::$encrypter->decrypt($encryptedVal);
         $this->assertNotEmpty($encryptedVal);
         $this->assertEquals('test', $decryptedVal);
+    }
+
+    /**
+     * @test
+     */
+    public function willDecryptObject()
+    {
+        $obj = new stdClass();
+        $obj->name = 'Steve';
+        $obj->age = 30;
+        $encryptedVal = static::$encrypter->encrypt($obj, true);
+        $decrypted = static::$encrypter->decrypt($encryptedVal, true);
+        $this->assertEquals($obj, $decrypted);
     }
 
 }

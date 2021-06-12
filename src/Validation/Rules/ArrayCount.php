@@ -44,7 +44,7 @@ class ArrayCount extends Rule
      */
     public function error()
     {
-        return "Does not have valid minimum entries";
+        return "does not have mininum valid entries";
     }
 
     /**

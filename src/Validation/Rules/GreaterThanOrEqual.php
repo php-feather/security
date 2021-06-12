@@ -29,10 +29,14 @@ class GreaterThanOrEqual extends Rule
 
     public function error(): string
     {
-        return "not greater or equal";
+        return 'is not greater than or equal to' . $this->comparisonField ?: $this->compareValue;
     }
 
-    public function run(): boolean
+    /**
+     *
+     * {@inheritDoc}
+     */
+    public function run(): \boolean
     {
         return $this->input > $this->compareValue;
     }

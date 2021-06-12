@@ -25,7 +25,7 @@ class Numeric extends Rule
      */
     public function error()
     {
-        return 'Is not Numeric';
+        return 'is not numeric';
     }
 
     /**

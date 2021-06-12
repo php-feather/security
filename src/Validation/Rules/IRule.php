@@ -11,7 +11,7 @@ interface IRule
 
     /**
      * Run validation rule
-     * @return boolean
+     * @return bool
      */
     public function run();
 
@@ -26,4 +26,10 @@ interface IRule
      * return string
      */
     public static function alias();
+
+    /**
+     *
+     * @param string $fieldname
+     */
+    public function setComparisonField($fieldname);
 }

@@ -13,14 +13,17 @@ abstract class Rule implements IRule
     /** @var mixed * */
     protected $input;
 
+    /** @var string * */
+    protected $comparisonField;
+
     public function __construct($input)
     {
         $this->input = $input;
     }
 
-    public static function abbreviation()
+    public function getComparisonField()
     {
-        return strtolower(str_replace('Feather\Security\Validation\Rules\\', '', static::class));
+        return $this->comparisonField;
     }
 
     /**
@@ -42,6 +45,15 @@ abstract class Rule implements IRule
     {
         $this->input = $input;
         return $this;
+    }
+
+    /**
+     *
+     * @param string $fieldname
+     */
+    public function setComparisonField($fieldname)
+    {
+        $this->comparisonField = $fieldname;
     }
 
 }
