@@ -12,7 +12,7 @@ use Feather\Security\Validation\Rules\Rule;
 class Runtime
 {
 
-    /** @var \Feather\Security\Validation\Validator * */
+    /** @var \Feather\Security\Validation\Runtime * */
     protected static $self;
 
     /** @var array * */
@@ -25,7 +25,7 @@ class Runtime
 
     /**
      *
-     * @return \Feather\Security\Validation\Validator
+     * @return \Feather\Security\Validation\Runtime
      */
     public static function getInstance()
     {
@@ -43,7 +43,7 @@ class Runtime
     /**
      *
      * @param type $name
-     * @return type
+     * @return string|null Rule class name or null if not found
      */
     public function getRule($name)
     {
@@ -56,7 +56,7 @@ class Runtime
     /**
      *
      * @param string $name Alias of Rule
-     * @param string $class Full nmespaced of Rule class name
+     * @param string $class Full namespaced of Rule class name
      * @return $this
      */
     public function registerRule($name, $class)
@@ -65,6 +65,9 @@ class Runtime
         return $this;
     }
 
+    /**
+     * register default rules
+     */
     protected function init()
     {
         $this->rules = [
