@@ -87,6 +87,7 @@ class Runtime
             Rules\LessThan::alias() => Rules\LessThan::class,
             Rules\LessThanOrEqual::alias() => Rules\LessThanOrEqual::class,
             Rules\MaxLength::alias() => Rules\MaxLength::class,
+            Rules\MinLength::alias() => Rules\MinLength::class,
             Rules\Numeric::alias() => Rules\Numeric::class,
             Rules\Regex::alias() => Rules\Regex::class,
             Rules\Required::alias() => Rules\Required::class,
