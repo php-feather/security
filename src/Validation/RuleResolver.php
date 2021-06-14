@@ -109,7 +109,6 @@ class RuleResolver
 
             return $this->instantiateRule($key, $rule, $params, $isArg);
         } catch (\Exception $e) {
-            die(var_dump($e->getMessage(), $e->getLine()));
             throw new ValidationException("Failed to resolve validation rule {$ruleStr}", 210, $e);
         }
     }
