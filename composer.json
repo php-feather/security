@@ -19,7 +19,8 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.0",
-        "php-feather/session": "dev-master"
+        "php-feather/session": "dev-master",
+        "php-feather/support": "dev-main"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5"

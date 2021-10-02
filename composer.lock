@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cd50b4f4478bc0d379138a0c087e301",
+    "content-hash": "1f784fb6f48b9ee1c7c354aa9e717442",
     "packages": [
         {
             "name": "php-feather/session",
@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-feather/support.git",
-                "reference": "2fcef5db7d5989e2de8d55e000d51edb6c2e1177"
+                "reference": "5423b447ba2dfaac83dbcc84967d64b46baba83c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-feather/support/zipball/2fcef5db7d5989e2de8d55e000d51edb6c2e1177",
-                "reference": "2fcef5db7d5989e2de8d55e000d51edb6c2e1177",
+                "url": "https://api.github.com/repos/php-feather/support/zipball/5423b447ba2dfaac83dbcc84967d64b46baba83c",
+                "reference": "5423b447ba2dfaac83dbcc84967d64b46baba83c",
                 "shasum": ""
             },
             "require": {
@@ -97,7 +97,7 @@
                 "issues": "https://github.com/php-feather/support/issues",
                 "source": "https://github.com/php-feather/support/tree/main"
             },
-            "time": "2021-10-02T16:49:23+00:00"
+            "time": "2021-10-02T21:27:23+00:00"
         },
         {
             "name": "predis/predis",
@@ -2263,7 +2263,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "php-feather/session": 20
+        "php-feather/session": 20,
+        "php-feather/support": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

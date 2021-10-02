@@ -2,7 +2,7 @@
 
 namespace Feather\Security\Csrf;
 
-use Feather\Security\Token;
+use Feather\Support\Util\Token;
 
 /**
  * Description of Token
