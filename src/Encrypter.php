@@ -2,12 +2,14 @@
 
 namespace Feather\Security;
 
+use Feather\Support\Contracts\IEncrypter;
+
 /**
  * Description of Encrypt
  *
  * @author fcarbah
  */
-class Encrypter
+class Encrypter implements IEncrypter
 {
 
     /** @var string * */
@@ -38,10 +40,10 @@ class Encrypter
     /**
      *
      * @param string|mixed $value if not string, then set serialize to true
-     * @param boolean $serialize
+     * @param bool $serialize
      * @return string
      */
-    public function encrypt($value, $serialize = false)
+    public function encrypt($value, bool $serialize = false)
     {
 
         $iv = openssl_random_pseudo_bytes($this->keyLength);
@@ -56,10 +58,10 @@ class Encrypter
     /**
      *
      * @param string $encryptedText
-     * @param true $unserialize - set this to true if serialize was set to true during encryption
+     * @param bool $unserialize - set this to true if serialize was set to true during encryption
      * @return string
      */
-    public function decrypt($encryptedText, $unserialize = false)
+    public function decrypt($encryptedText, bool $unserialize = false)
     {
         $decoded = base64_decode($encryptedText);
 
