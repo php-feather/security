@@ -18,7 +18,7 @@ class Hash
      */
     public static function make($plainText, $salt = null)
     {
-        return crypt($plainText, $salt);
+        return crypt($plainText, $salt ?: md5(time()));
     }
 
     /**

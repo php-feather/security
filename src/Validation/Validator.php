@@ -30,11 +30,11 @@ class Validator
 
     public function __construct(array $input, array $rules, array $messages = [])
     {
-        $this->errorBag = new ErrorBag();
-        $this->input = $input;
-        $this->messages = $messages;
-        $this->resolver = new RuleResolver();
-        $this->rules = $this->resolver->setData($input)
+        $this->errorBag         = new ErrorBag();
+        $this->input            = $input;
+        $this->messages         = $messages;
+        $this->resolver         = new RuleResolver();
+        $this->rules            = $this->resolver->setData($input)
                 ->setRules($rules)
                 ->resolve();
         $this->comparisonFields = $this->resolver->getComparisonFields();
@@ -69,7 +69,7 @@ class Validator
     public function validate()
     {
 
-        $valid = true;
+        $valid  = true;
         $errors = [];
 
         foreach ($this->rules as $field => $rules) {

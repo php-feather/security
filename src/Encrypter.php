@@ -43,7 +43,7 @@ class Encrypter implements IEncrypter
      * @param bool $serialize
      * @return string
      */
-    public function encrypt($value, bool $serialize = false)
+    public function encrypt($value, bool $serialize = false): string
     {
 
         $iv = openssl_random_pseudo_bytes($this->keyLength);
@@ -59,9 +59,9 @@ class Encrypter implements IEncrypter
      *
      * @param string $encryptedText
      * @param bool $unserialize - set this to true if serialize was set to true during encryption
-     * @return string
+     * @return mixed
      */
-    public function decrypt(string $encryptedText, bool $unserialize = false)
+    public function decrypt(string $encryptedText, bool $unserialize = false): mixed
     {
         $decoded = base64_decode($encryptedText);
 

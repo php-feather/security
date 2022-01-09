@@ -31,7 +31,7 @@ class ErrorBag extends Bag
     public function get($key)
     {
         $keyParts = explode('.', $key);
-        $index = $keyParts[0];
+        $index    = $keyParts[0];
         $subIndex = count($keyParts) > 1 ? $keyParts[1] : null;
 
         $val = $this->{$index};
