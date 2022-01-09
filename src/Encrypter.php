@@ -61,7 +61,7 @@ class Encrypter implements IEncrypter
      * @param bool $unserialize - set this to true if serialize was set to true during encryption
      * @return string
      */
-    public function decrypt($encryptedText, bool $unserialize = false)
+    public function decrypt(string $encryptedText, bool $unserialize = false)
     {
         $decoded = base64_decode($encryptedText);
 
