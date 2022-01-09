@@ -31,8 +31,8 @@ class Encrypter implements IEncrypter
         $cipher = strtolower($cipher);
 
         if (static::isSupported($key, $cipher)) {
-            $this->cipher = $cipher;
-            $this->key = $key;
+            $this->cipher    = $cipher;
+            $this->key       = $key;
             $this->keyLength = openssl_cipher_iv_length($cipher);
         }
     }
@@ -74,6 +74,21 @@ class Encrypter implements IEncrypter
         $decryptedText = openssl_decrypt($rawVal, $this->cipher, $this->key, 0, $iv);
 
         return $unserialize ? unserialize($decryptedText) : $decryptedText;
+    }
+
+    /**
+     *
+     * @param int $strLength Length of string
+     * @param bool $urlSafe
+     * @return string
+     */
+    public static function generateRandomString(int $strLength, bool $urlSafe = true)
+    {
+        if ($urlSafe) {
+            return substr(strtok(strtr(base64_encode(bin2hex(openssl_random_pseudo_bytes($strLength))), '/+', '_-'), '='), 0, $strLength);
+        }
+
+        return substr(strtok(base64_encode(bin2hex(openssl_random_pseudo_bytes($strLength)))), 0, $strLength);
     }
 
     /**
