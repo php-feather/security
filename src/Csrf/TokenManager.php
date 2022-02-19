@@ -16,7 +16,18 @@ class TokenManager
 
     /**
      *
-     * @param string $id
+     * @param \Feather\Security\Csrf\CsrfToken $token
+     * @return \Feather\Security\Csrf\CsrfToken
+     */
+    public static function addToken(CsrfToken $token)
+    {
+        Session::set($token->getId(), $token);
+        return $token;
+    }
+
+    /**
+     *
+     * @param string $id Token Id/name
      * @return \Feather\Security\Csrf\CsrfToken
      */
     public static function deleteToken($id)
@@ -26,7 +37,7 @@ class TokenManager
     }
 
     /**
-     * @param string id
+     * @param string id Token Id/name
      * @param int $expireAfter Expiry time of csrf token
      * @return \Feather\Security\Csrf\CsrfToken
      */
@@ -34,14 +45,14 @@ class TokenManager
     {
         $value = strtr(base64_encode(random_bytes(32)), '+/', '-_');
         $token = rtrim($value, '=');
-        $csrf = new CsrfToken($id, $token, $expireAfter);
+        $csrf  = new CsrfToken($id, $token, $expireAfter);
         Session::set($id, $csrf);
         return $csrf;
     }
 
     /**
      *
-     * @param string $id
+     * @param string $id Token Id/name
      * @return \Feather\Security\Csrf\CsrfToken
      */
     public static function getToken($id)
