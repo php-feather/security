@@ -28,7 +28,11 @@ class ErrorBag extends Bag
         return $val;
     }
 
-    public function get($key)
+    /**
+     *
+     * @{inheritDoc}
+     */
+    public function get($key, $default = null)
     {
         $keyParts = explode('.', $key);
         $index    = $keyParts[0];
@@ -48,7 +52,7 @@ class ErrorBag extends Bag
             return current($val);
         }
 
-        return $val;
+        return $val ?: $default;
     }
 
     public function last($key)
